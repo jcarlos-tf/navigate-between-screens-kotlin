@@ -1,5 +1,6 @@
 package com.example.helloword
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,7 +22,9 @@ class MainActivity : AppCompatActivity() {
 
     fun checkValue (){
         if(binding.etName.text.isNotEmpty()){
-
+            val intent = Intent(this, ResultActivity::class.java);
+            intent.putExtra("INTENT_NAME", binding.etName.text);
+            startActivity(intent);
         }else {
             showErrorName();
         }
